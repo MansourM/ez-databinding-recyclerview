@@ -1,1 +1,1 @@
-"# ez-databinding-recyclerview" 
+# ez-databinding-recyclerview
