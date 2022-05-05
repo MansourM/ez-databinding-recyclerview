@@ -3,15 +3,19 @@ package ir.masterz.mansour.ez.databinding.recyclerview.adapter;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
-import ir.masterz.mansour.ez.databinding.recyclerview.adapter.BR;
+public class DataBindingViewHolder<T, B> extends RecyclerView.ViewHolder {
 
-public class DataBindingViewHolder<T> extends RecyclerView.ViewHolder {
-
-    public ViewDataBinding binding;
+    private ViewDataBinding binding;
 
     public DataBindingViewHolder(ViewDataBinding binding) {
         super(binding.getRoot());
         this.binding = binding;
+    }
+
+    //TODO: make this safe!
+    //B needs to be a Auto generated DataBinding class!
+    public B getBinding() {
+        return (B) binding;
     }
 
     public void bind(T object) {

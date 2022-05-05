@@ -3,7 +3,6 @@ package ir.masterz.mansour.ez.databinding.recyclerview.example;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
@@ -31,5 +30,6 @@ public class TestActivity extends AppCompatActivity {
         adapter = new TestAdapter(personnel);
         binding.rvDataBindingExample.setLayoutManager(new LinearLayoutManager(this));
         binding.rvDataBindingExample.setAdapter(adapter);
+
     }
 }

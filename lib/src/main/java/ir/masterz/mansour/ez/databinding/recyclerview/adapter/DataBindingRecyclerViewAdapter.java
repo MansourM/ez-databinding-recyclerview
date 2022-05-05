@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 
-public abstract class DataBindingRecyclerViewAdapter<T> extends RecyclerView.Adapter<DataBindingViewHolder<T>> {
+public abstract class DataBindingRecyclerViewAdapter<T, B> extends RecyclerView.Adapter<DataBindingViewHolder<T, B>> {
 
     private ArrayList<T> ItemList;
     private SimpleOnClickListener SimpleOnClickListener;
@@ -27,14 +27,14 @@ public abstract class DataBindingRecyclerViewAdapter<T> extends RecyclerView.Ada
 
     @NonNull
     @Override
-    public DataBindingViewHolder<T> onCreateViewHolder(ViewGroup parent, int viewType) {
+    public DataBindingViewHolder<T, B> onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, viewType, parent, false);
-        return new DataBindingViewHolder<>(binding);
+        return new DataBindingViewHolder<T, B>(binding);
     }
 
     @Override
-    public void onBindViewHolder(DataBindingViewHolder<T> holder, int position) {
+    public void onBindViewHolder(DataBindingViewHolder<T, B> holder, int position) {
         T obj = getObjForPosition(position);
         if (SimpleOnClickListener != null)
             holder.itemView.setOnClickListener(v -> SimpleOnClickListener.onClick(position));
