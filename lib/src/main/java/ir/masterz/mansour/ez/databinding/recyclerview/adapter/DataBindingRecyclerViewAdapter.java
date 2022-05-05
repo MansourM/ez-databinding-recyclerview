@@ -30,7 +30,7 @@ public abstract class DataBindingRecyclerViewAdapter<T> extends RecyclerView.Ada
     public DataBindingViewHolder<T> onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, viewType, parent, false);
-        return new DataBindingViewHolder<T>(binding);
+        return new DataBindingViewHolder<>(binding);
     }
 
     @Override
