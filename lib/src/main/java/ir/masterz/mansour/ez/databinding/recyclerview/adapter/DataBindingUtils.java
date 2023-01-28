@@ -47,8 +47,4 @@ public class DataBindingUtils {
         return coloredSpannedText(text, colorCode);
     }
 
-    public static <T> String numberToString(T number) {
-        return String.valueOf(number);
-    }
-
 }
