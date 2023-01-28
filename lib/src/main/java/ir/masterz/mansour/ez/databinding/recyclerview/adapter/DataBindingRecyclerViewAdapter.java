@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 
-public abstract class DataBindingRecyclerViewAdapter<T, B> extends RecyclerView.Adapter<DataBindingViewHolder<T, B>> {
+public abstract class DataBindingRecyclerViewAdapter<T, B> extends RecyclerView.Adapter<DataBindingViewHolder<B>> {
 
     private ArrayList<T> ItemList;
     private SimpleOnClickListener SimpleOnClickListener;
@@ -27,18 +27,22 @@ public abstract class DataBindingRecyclerViewAdapter<T, B> extends RecyclerView.
 
     @NonNull
     @Override
-    public DataBindingViewHolder<T, B> onCreateViewHolder(ViewGroup parent, int viewType) {
+    public DataBindingViewHolder<B> onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, viewType, parent, false);
-        return new DataBindingViewHolder<T, B>(binding);
+        return new DataBindingViewHolder<>(binding);
     }
 
+    /**
+     * !!IMPORTANT!! Don't forget to bind your object with holder.bind(variableId, objectToBind)
+     * @param holder   The ViewHolder which should be updated to represent the contents of the
+     *                 item at the given position in the data set.
+     * @param position The position of the item within the adapter's data set.
+     */
     @Override
-    public void onBindViewHolder(DataBindingViewHolder<T, B> holder, int position) {
-        T obj = getObjForPosition(position);
+    public void onBindViewHolder(DataBindingViewHolder<B> holder, int position) {
         if (SimpleOnClickListener != null)
             holder.itemView.setOnClickListener(v -> SimpleOnClickListener.onClick(position));
-        holder.bind(obj);
     }
 
     @Override

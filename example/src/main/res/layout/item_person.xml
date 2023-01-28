@@ -2,12 +2,12 @@
 <layout>
 
     <data>
-
-        <import type="ir.masterz.mansour.ez.databinding.recyclerview.adapter.DataBindingUtils" />
-
         <variable
-            name="objectToBind"
+            name="person"
             type="ir.masterz.mansour.ez.databinding.recyclerview.example.Person" />
+        <variable
+            name="index"
+            type="int" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,19 +19,25 @@
         android:orientation="horizontal">
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:text="@{String.valueOf(index)}" />
+
+        <TextView
             android:id="@+id/tv_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:layout_weight="1"
-            android:text="@{objectToBind.name}" />
+            android:text="@{person.name}" />
 
         <TextView
             android:id="@+id/tv_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
-            android:text="@{DataBindingUtils.numberToString(objectToBind.age)}" />
+            android:text="@{String.valueOf(person.age)}" />
 
     </LinearLayout>
 </layout>

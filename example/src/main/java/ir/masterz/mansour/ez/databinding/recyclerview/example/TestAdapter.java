@@ -16,11 +16,14 @@ public class TestAdapter extends DataBindingRecyclerViewAdapter<Person, ItemPers
     }
 
     @Override
-    public void onBindViewHolder(DataBindingViewHolder<Person, ItemPersonBinding> holder, int position) {
+    public void onBindViewHolder(DataBindingViewHolder<ItemPersonBinding> holder, int position) {
         super.onBindViewHolder(holder, position);
         holder.getBinding().tvAge.setOnClickListener(view -> {
             Toast.makeText(view.getContext(), "age", Toast.LENGTH_LONG).show();
         });
+        //Example for binding multiple objects
+        holder.bind(BR.index, position + 1, false);
+        holder.bind(BR.person, getObjForPosition(position));
     }
 
     @Override
