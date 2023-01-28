@@ -12,6 +12,8 @@ public class DataBindingViewHolder<T, B> extends RecyclerView.ViewHolder {
         this.binding = binding;
     }
 
+    //fixme: add support for when each item has a different layout/binding
+
     //TODO: make this safe!
     //B needs to be a Auto generated DataBinding class!
     public B getBinding() {

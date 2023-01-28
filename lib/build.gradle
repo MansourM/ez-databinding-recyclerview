@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         minSdk 19
-        targetSdk 32
+        targetSdk 33
 
     }
 
@@ -25,14 +25,16 @@ android {
 
     buildFeatures {
         dataBinding true
+        viewBinding true
     }
+    namespace 'ir.masterz.mansour.ez.databinding.recyclerview.adapter'
 }
 
 dependencies {
 
     //Base
     implementation "androidx.recyclerview:recyclerview:1.2.1"
-
+    //For Image src dataBinding
     api 'com.github.bumptech.glide:glide:4.13.0'
 
 }
