@@ -109,6 +109,7 @@ item_person.xml
 * [x] databinding.
 * [x] viewbinding.
 * [x] allow binding more then 1 object.
+* [ ] better support for different viewtypes
 * [ ] better comments/docs
 
 <!-- Known Issues -->
