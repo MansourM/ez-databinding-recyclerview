@@ -127,7 +127,7 @@ Contributions are always welcome!
 
 ## :warning: License
 
-Distributed under the GNU GPL V3 License.
+Distributed under the GNU GPL V2 License.
 
 
 <!-- Contact -->
