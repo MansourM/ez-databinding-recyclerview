@@ -10,7 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-
+/**
+ * @param <T> Object Type
+ * @param <B> Binding Class
+ */
 public abstract class DataBindingRecyclerViewAdapter<T, B> extends RecyclerView.Adapter<DataBindingViewHolder<B>> {
 
     private ArrayList<T> ItemList;
@@ -25,16 +28,18 @@ public abstract class DataBindingRecyclerViewAdapter<T, B> extends RecyclerView.
         SimpleOnClickListener = simpleOnClickListener;
     }
 
+    //Layout is selected from <B> which is the binding class of that XML
     @NonNull
     @Override
     public DataBindingViewHolder<B> onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, viewType, parent, false);
+        ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, getLayoutIdForPosition(viewType), parent, false);
         return new DataBindingViewHolder<>(binding);
     }
 
     /**
      * !!IMPORTANT!! Don't forget to bind your object with holder.bind(variableId, objectToBind)
+     *
      * @param holder   The ViewHolder which should be updated to represent the contents of the
      *                 item at the given position in the data set.
      * @param position The position of the item within the adapter's data set.
