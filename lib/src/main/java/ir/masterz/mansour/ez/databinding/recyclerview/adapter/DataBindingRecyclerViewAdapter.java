@@ -33,7 +33,7 @@ public abstract class DataBindingRecyclerViewAdapter<T, B> extends RecyclerView.
     @Override
     public DataBindingViewHolder<B> onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, getLayoutIdForPosition(viewType), parent, false);
+        ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, viewType, parent, false);
         return new DataBindingViewHolder<>(binding);
     }
 
@@ -50,6 +50,9 @@ public abstract class DataBindingRecyclerViewAdapter<T, B> extends RecyclerView.
             holder.itemView.setOnClickListener(v -> SimpleOnClickListener.onClick(position));
     }
 
+    /**
+     * if you overwrite this method you need to to also overwrite onCreateViewHolder
+     **/
     @Override
     public int getItemViewType(int position) {
         return getLayoutIdForPosition(position);
