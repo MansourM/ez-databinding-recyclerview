@@ -33,6 +33,7 @@ public abstract class DataBindingRecyclerViewAdapter<T, B> extends RecyclerView.
     @Override
     public DataBindingViewHolder<B> onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        //FIXME
         ViewDataBinding binding = DataBindingUtil.inflate(layoutInflater, viewType, parent, false);
         return new DataBindingViewHolder<>(binding);
     }
